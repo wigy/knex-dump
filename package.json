@@ -1,6 +1,6 @@
 {
   "name": "knex-dump",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "This is a tool to backup and restore a database.",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/wigy/knex-dump#readme",
   "dependencies": {
+    "json-format": "^1.0.0",
     "knex": "^0.12.7",
     "mysql": "^2.13.0",
     "postgresql": "0.0.1",
