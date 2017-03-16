@@ -40,7 +40,12 @@ switch(args.command) {
             console.error("Reading STDIN not implemented.");
         } else {
             let input = JSON.parse(fs.readFileSync(args.file, 'utf8'));
-            knexDump.restore(new Data(input));
+            knexDump.restore(new Data(input)).then(() => {
+                process.exit(0);
+            }).catch(err => {
+                console.error(err);
+                process.exit(1);
+            });
         }
         break;
 // TODO: Restore functionality.
