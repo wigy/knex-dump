@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/wigy/knex-dump#readme",
   "dependencies": {
+    "argparse": "^1.0.9",
     "json-format": "^1.0.0",
     "knex": "^0.12.7",
     "mysql": "^2.13.0",
