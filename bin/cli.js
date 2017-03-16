@@ -2,6 +2,7 @@
 
 const ArgumentParser = require('argparse').ArgumentParser;
 const STDOUT = Symbol('STDOUT');
+const fs = require('fs');
 
 const Dump = require('../lib/dump');
 const Output = require('../lib/output');
@@ -24,8 +25,9 @@ switch(args.command) {
             // TODO: Do some canonical sorting.
             if (args.file===STDOUT) {
                 console.log(output.toString())
+            } else {
+                fs.writeFileSync(args.file, output.toString());
             }
-            // TODO: Write file
             process.exit();
         }).catch(err => {
             console.error(err);
