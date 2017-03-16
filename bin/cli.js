@@ -5,7 +5,7 @@ const STDIN_OR_OUT = Symbol('STDIN_OR_OUT');
 const fs = require('fs');
 
 const Dump = require('../lib/dump');
-const Output = require('../lib/output');
+const Data = require('../lib/data');
 
 let configPath = process.cwd() + '/knexfile.js';
 let knexDump = new Dump(configPath);
@@ -39,8 +39,8 @@ switch(args.command) {
         if (args.file===STDIN_OR_OUT) {
             console.error("Reading STDIN not implemented.");
         } else {
-            let data = JSON.parse(fs.readFileSync(args.file, 'utf8'));
-            knexDump.restore(new Output(data));
+            let input = JSON.parse(fs.readFileSync(args.file, 'utf8'));
+            knexDump.restore(new Data(input));
         }
         break;
 // TODO: Restore functionality.
