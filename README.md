@@ -21,3 +21,5 @@ Then it can be restored to the database
 handle streams instead of JSON-data blocks in memory.
 
 ## Version history
+
+* 1.0.0 Simple dumping and restoring on a file.
