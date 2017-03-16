@@ -1,4 +1,4 @@
 # Wigy's Knex Dump
 
-This is a tool to backup and restore a database.
+This is a tool to backup and restore small Knex-based databases.
 
