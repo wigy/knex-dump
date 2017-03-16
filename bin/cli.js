@@ -22,7 +22,6 @@ switch(args.command) {
 
     case 'save':
         knexDump.dump().then(output => {
-            // TODO: Do some canonical sorting, when reading.
             if (args.file===STDIN_OR_OUT) {
                 console.log(output.toString())
             } else {
@@ -48,5 +47,4 @@ switch(args.command) {
             });
         }
         break;
-// TODO: Restore functionality.
 }
