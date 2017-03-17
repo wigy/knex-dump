@@ -17,8 +17,7 @@ Then it can be restored to the database
 ## Future ideas
 
 * Figure out some canonical sorting. For example: primary key, indexes, then other fields in alphabetical order.
-* If this is needed for bigger databases, it would require some refactoring in order to
-handle streams instead of JSON-data blocks in memory.
+* If this is needed for bigger databases, it would require some refactoring in order to handle streams instead of JSON-data blocks in memory.
 
 ## Version history
 
