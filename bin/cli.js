@@ -3,7 +3,6 @@
 const ArgumentParser = require('argparse').ArgumentParser;
 const STDIN_OR_OUT = Symbol('STDIN_OR_OUT');
 const fs = require('fs');
-
 const Dump = require('../lib/dump');
 const Data = require('../lib/data');
 
