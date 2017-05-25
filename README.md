@@ -46,3 +46,4 @@ exports.seed = function(knex, Promise) {
 * 1.0.0 Simple dumping and restoring on a file.
 * 1.0.1 Canonical sorting for all columns.
 * 1.0.2 An interface for using `neat-dump` as a Node-module.
+* 1.0.3 Avoid crash if data is missing.
