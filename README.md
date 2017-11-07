@@ -10,12 +10,12 @@ Thus it is not suitable for huge databases.
 
 In the directory containing a `knexfile.js`, you can save all data to the dump file:
 ```shell
-    knex-dump --file dump.json save
+    knex-dump --file dump.json dump
 ```
 
 Then it can be restored to the database
 ```shell
-    knex-dump --file dump.json load
+    knex-dump --file dump.json restore
 ```
 
 ### For seed data
@@ -24,7 +24,7 @@ In a project using Knex, you can make seed data managament easy. Add a script
 ```json
   "scripts": {
     ...
-    "save": "knex-dump --file seeds/data.json save"
+    "save": "knex-dump --file seeds/data.json restore"
   },
 ```
 to your `package.json`. Then you can dump the current state of the database as seed data

@@ -6,23 +6,36 @@ const fs = require('fs');
 const Dump = require('../lib/dump');
 const Data = require('../lib/data');
 
-let configPath = process.cwd() + '/knexfile.js';
-let knexDump = new Dump(configPath);
-
 const parser = new ArgumentParser({
   addHelp: true,
   description: 'Utility to load and save knex-based databases.'
 });
-parser.addArgument('command', {choices: ['save', 'load']});
+parser.addArgument('command', {choices: ['dump', 'restore']});
 parser.addArgument('--file', {defaultValue: STDIN_OR_OUT});
+parser.addArgument('--db', {defaultValue: null});
 const args = parser.parseArgs();
+
+let config;
+
+if (args.db) {
+    config = {
+        client: 'sqlite3',
+        connection: {
+            filename: args.db
+        },
+        useNullAsDefault: true
+    };
+} else {
+    config = require(process.cwd() + '/knexfile.js');
+}
+let knexDump = new Dump(config);
 
 switch(args.command) {
 
-    case 'save':
+    case 'dump':
         knexDump.dump().then(output => {
             if (args.file===STDIN_OR_OUT) {
-                console.log(output.toString())
+                console.log(output.toString());
             } else {
                 fs.writeFileSync(args.file, output.toString());
             }
@@ -33,7 +46,7 @@ switch(args.command) {
         });
         break;
 
-    case 'load':
+    case 'restore':
         if (args.file===STDIN_OR_OUT) {
             console.error("Reading STDIN not implemented.");
         } else {
