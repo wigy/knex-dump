@@ -12,7 +12,7 @@ module.exports = {
      * @returns A promise resolving successfully when save completed.
      */
     save(configPath, jsonPath) {
-        let knexDump = new Dump(configPath);
+        let knexDump = new Dump(require(configPath));
         return knexDump.dump().then(output => {
             fs.writeFileSync(jsonPath, output.toString());
         });
@@ -26,7 +26,7 @@ module.exports = {
      * @returns A promise resolving successfully when load completed.
      */
     load(configPath, jsonPath) {
-        let knexDump = new Dump(configPath);
+        let knexDump = new Dump(require(configPath));
         let input = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
         return knexDump.restore(new Data(input));
     }
