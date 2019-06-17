@@ -49,4 +49,4 @@ exports.seed = function(knex, Promise) {
 * 1.0.3 Avoid crash if data is missing.
 * 1.0.4 Load data in chunks to avoid sqlite limitations.
 * 1.0.5 MSSQL support.
-
+* 1.0.6 Postgres support.
