@@ -7,6 +7,7 @@ const path = require('path');
 const Dump = require('../lib/dump');
 const SQLite3Dump = require('../lib/sqlite3');
 const MSSQLDump = require('../lib/mssql');
+const PostgresDump = require('../lib/postgres');
 const Data = require('../lib/data');
 
 const parser = new ArgumentParser({
@@ -40,6 +41,8 @@ let knexDump = (function() {
 			return new SQLite3Dump(config);
 		case 'mssql':
 			return new MSSQLDump(config);
+		case 'postgresql':
+			return new PostgresDump(config);
 		default:
 			return new Dump(config);
 	}
