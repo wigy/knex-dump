@@ -22,10 +22,12 @@
   "dependencies": {
     "argparse": "^1.0.9",
     "json-format": "^1.0.0",
+    "split-array": "^1.0.1"
+  },
+  "peerDependencies": {
     "knex": "^0.19.5",
     "mysql": "^2.17.1",
     "postgresql": "0.0.1",
-    "split-array": "^1.0.1",
     "sqlite3": "^4.1.0"
   }
 }
